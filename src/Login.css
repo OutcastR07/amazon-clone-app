@@ -57,6 +57,12 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    cursor: pointer;
+}
+
+.login__signInButton:active {
+    transition-duration: 0.05s;
+    background-color: #daab32;
 }
 
 .login__registerButton {
@@ -66,4 +72,10 @@
     border: 1px solid;
     margin-top: 10px;
     border-color: darkgrey;
+    cursor: pointer;
+}
+
+.login__registerButton:active {
+    transition-duration: 0.05s;
+    background-color: rgb(235, 230, 230);
 }

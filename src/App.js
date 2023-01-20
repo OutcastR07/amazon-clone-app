@@ -6,6 +6,7 @@ import Checkout from './Checkout';
 import Login from './Login'
 import Payment from './Payment';
 import Orders from './Orders';
+import Footer from './Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
@@ -50,6 +51,7 @@ function App() {
             <>
               <Header />
               <Home />
+              <Footer />
             </>
           }
           />
@@ -57,6 +59,7 @@ function App() {
             <>
               <Header />
               <Checkout />
+              <Footer />
             </>
           }
           />
@@ -64,6 +67,7 @@ function App() {
             <>
               <Header />
               <Orders />
+              <Footer />
             </>
           }
           />
@@ -73,6 +77,7 @@ function App() {
               <Elements stripe={promise}>
                 <Payment />
               </Elements>
+              <Footer />
             </>
           }
           />

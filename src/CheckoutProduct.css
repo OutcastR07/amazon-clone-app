@@ -29,4 +29,10 @@
     margin-top: 10px;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    cursor: pointer;
+}
+
+.checkoutProduct__info>button:active {
+    transition-duration: 0.05s;
+    background-color: #daab32;
 }

@@ -1,14 +1,19 @@
 import React from 'react'
 import './Home.css'
 import Product from './Product'
+import Carousel from './Carousel';
 
 function Home() {
+
     return (
         <div className='home'>
             <div className="home__container">
-                <img
-                    className='home__image'
-                    src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg" alt="" />
+                <Carousel>
+                    <img className='home__image' src="https://m.media-amazon.com/images/I/61TD5JLGhIL._SX3000_.jpg" alt="placeholder" />
+                    <img className='home__image' src="https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg" alt="placeholder" />
+                    <img className='home__image' src="https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg" alt="placeholder" />
+                </Carousel>
+
                 <div className="home__row">
                     <Product
                         id="12321341"
@@ -58,7 +63,7 @@ function Home() {
                     />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from './firebase';
+import { useStateValue } from './StateProvider';
 import './Login.css'
 
 function Login() {
+
+    const [{ basket, user }, dispatch] = useStateValue();
 
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -16,6 +19,9 @@ function Login() {
             .then(auth => {
                 if (auth) {
                     navigate('/');
+                    dispatch({
+                        type: 'EMPTY_BASKET'
+                    })
                 }
             })
             .catch(error => alert(error.message))
@@ -29,6 +35,9 @@ function Login() {
                 //it successfully created a new user with email and password
                 if (auth) {
                     navigate('/');
+                    dispatch({
+                        type: 'EMPTY_BASKET'
+                    })
                 }
             })
             .catch(error => alert(error.message))
