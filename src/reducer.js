@@ -4,17 +4,16 @@ export const initialState = {
 };
 
 //Selector
-export const getBasketTotal = (basket) => {
-    let amount = 0;
-    if (basket.length === 0) {
-        return 0;
-    }
-    basket.forEach((item) => {
-        amount = item.price + amount
-    })
-    return amount;
-}
-// basket?.reduce((amount, item) => item.price + amount, 0);
+export const getBasketTotal = (basket) =>
+    // let amount = 0;
+    // if (basket.length === 0) {
+    //     return 0;
+    // }
+    // basket.forEach((item) => {
+    //     amount = item.price + amount
+    // })
+    // return amount;
+    (basket ? basket.reduce((amount, item) => item.price + amount, 0) : null)
 
 const reducer = (state, action) => {
 

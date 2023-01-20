@@ -28,11 +28,14 @@ function Payment() {
             const response = await axios({
                 method: 'post',
                 //Stripe expects the total in a currencies submits
-                url: `/payment/create?total=${getBasketTotal(basket) * 100}`
+                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             });
             setClientSecret(response.data.clientSecret)
         }
+        getClientSecret();
     }, [basket])
+
+    console.log('THE SECRET IS >>>', clientSecret)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,10 +48,10 @@ function Payment() {
         }).then(({ paymentIntent }) => {
             //paymentIntent = payment confirmation
             setSucceeded(true);
-            setError(null)
-            setProcessing(false)
+            setError(null);
+            setProcessing(false);
 
-            navigate('/orders', { replace: true })
+            navigate('/orders', { replace: true });
         })
     }
 
@@ -107,7 +110,9 @@ function Payment() {
                             <div className="payment__priceContainer">
                                 <CurrencyFormat
                                     renderText={(value) => (
-                                        <h3>Order Total: {value}</h3>
+                                        <>
+                                            <h3>Order Total: {value}</h3>
+                                        </>
                                     )}
                                     decimalScale={2}
                                     value={getBasketTotal(basket)}
